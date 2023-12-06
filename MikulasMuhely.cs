@@ -2,40 +2,63 @@ namespace mikulas
 {
    class MikulasMuhely
    {
-      public List<Ajandek> AjandekLista { get; set; }
-      public Ajandek[] AjandekTomb { get; set; }
-      public string MuhelyVezeto { get; set; }
-      public bool MuhelyNyitva { get; set; }
+      private List<Ajandek> ajandekLista;
+      private Ajandek[] ajandekTomb;
+      private string muhelyVezeto;
+      private bool muhelyNyitva;
 
-      public MikulasMuhely(string muhelyVezeto)
+      public MikulasMuhely(string muhelyVezeto, Ajandek[] ajandekTomb)
       {
-         AjandekLista = new List<Ajandek>();
-         AjandekTomb = new Ajandek[] { };
-         MuhelyVezeto = muhelyVezeto;
-         MuhelyNyitva = false;
+         ajandekLista = new List<Ajandek>();
+         this.ajandekTomb = ajandekTomb;
+         this.muhelyVezeto = muhelyVezeto;
+         Array.Copy(ajandekTomb, this.ajandekTomb, ajandekTomb.Length);
+         this.muhelyVezeto = muhelyVezeto;
+         muhelyNyitva = false;
+      }
+
+      public List<Ajandek> AjandekLista
+      {
+         get { return ajandekLista; }
+      }
+
+      public Ajandek[] AjandekTomb
+      {
+         get { return ajandekTomb; }
+      }
+
+      public string MuhelyVezeto
+      {
+         get { return muhelyVezeto; }
+      }
+
+      public bool MuhelyNyitva
+      {
+         get { return muhelyNyitva; }
       }
 
       public void AjandekHozzaadasaListahoz(Ajandek ajandek)
       {
-         AjandekLista.Add(ajandek);
+         ajandekLista.Add(ajandek);
       }
 
       public void AjandekHozzaadasaTombhoz(Ajandek ajandek, int index = -1)
       {
          if (index == -1)
          {
-            AjandekTomb.ToList().Add(ajandek);
-            AjandekTomb.ToArray();
+            ajandekTomb.ToList().Add(ajandek);
+            ajandekTomb.ToArray();
          }
          else
          {
-            AjandekTomb[index] = ajandek;
+            ajandekTomb[index] = ajandek;
          }
       }
 
       public void BecsomagoltAjandekokMegjelenitese()
       {
-         foreach (Ajandek ajandek in AjandekLista)
+         Console.WriteLine("Becsomagolt ajándékok:");
+         foreach (Ajandek ajandek in ajandekLista)
          {
             if (ajandek.Becsomagolva)
             {
@@ -46,7 +69,8 @@ namespace mikulas
 
       public void LejartAjandekokEllenorzese()
       {
-         foreach (Ajandek ajandek in AjandekLista)
+         Console.WriteLine("Lejárt ajándékok:");
+         foreach (Ajandek ajandek in ajandekLista)
          {
             if (ajandek.LejaratiDatum < DateTime.Now)
             {
@@ -57,7 +81,8 @@ namespace mikulas
 
       public void TorekenyAjandekokEllenorzese()
       {
-         foreach (Ajandek ajandek in AjandekLista)
+         Console.WriteLine("Törékeny ajándékok:");
+         foreach (Ajandek ajandek in ajandekLista)
          {
             if (ajandek.Torekeny)
             {
@@ -68,7 +93,8 @@ namespace mikulas
 
       public void EredetiOrszagbeliAjandekokMegjelenitese(string orszag)
       {
-         foreach (Ajandek ajandek in AjandekLista)
+         Console.WriteLine($"{orszag} országbéli ajándékok:");
+         foreach (Ajandek ajandek in ajandekLista)
          {
             if (ajandek.GyartasiOrszag == orszag)
             {
@@ -79,23 +105,41 @@ namespace mikulas
 
       public void MuhelyNyitas()
       {
-         MuhelyNyitva = true;
+         if (muhelyNyitva)
+         {
+            Console.WriteLine("A műhely már nyitva van.");
+         }
+         else
+         {
+            muhelyNyitva = true;
+            Console.WriteLine("A műhely nyitva van.");
+         }
       }
 
       public void MuhelyBezaras()
       {
-         MuhelyNyitva = false;
+         if (!muhelyNyitva)
+         {
+            Console.WriteLine("A műhely már zárva van.");
+         }
+         else
+         {
+            muhelyNyitva = false;
+            Console.WriteLine("A műhely zárva van.");
+         }
       }
 
       public void MuhelyVezetoModositas(string ujVezeto)
       {
-         MuhelyVezeto = ujVezeto;
+         muhelyVezeto = ujVezeto;
+         Console.WriteLine("A műhely vezetője: " + muhelyVezeto);
       }
 
       public void AjandekTorlese(string nev)
       {
-         AjandekLista.RemoveAll(ajandek => ajandek.Nev == nev);
-         AjandekTomb.ToList().RemoveAll(ajandek => ajandek.Nev == nev);
+         ajandekLista.RemoveAll(ajandek => ajandek.Nev == nev);
+         ajandekTomb.ToList().RemoveAll(ajandek => ajandek.Nev == nev);
+         Console.WriteLine($"{nev} törölve lett.");
       }
 
    }
