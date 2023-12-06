@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace mikulas
 {
    class Ajandek
@@ -18,11 +13,11 @@ namespace mikulas
       public string Anyag { get; set;}
       public DateTime LejaratiDatum { get; set;}
       public bool Torekeny { get; set;}
-      public string GyartasiOsztaly { get; set;}
+      public string GyartasiOrszag { get; set;}
       public string SzallitasiCim { get; set;}
       public bool Kiszallitva { get; set;}
 
-      public Ajandek(string nev, double suly, int ar, string cimzett, string kategoria, bool becsomagolva, string gyarto, int raktaronMennyiseg, string anyag, DateTime lejaratiDatum, bool torekeny, string gyartasiOsztaly, string szallitasiCim = "")
+      public Ajandek(string nev, double suly, int ar, string cimzett, string kategoria, bool becsomagolva, string gyarto, int raktaronMennyiseg, string anyag, DateTime lejaratiDatum, bool torekeny, string gyartasiOrszag, string szallitasiCim = "")
       {
          Nev = nev;
          Suly = suly;
@@ -35,7 +30,7 @@ namespace mikulas
          Anyag = anyag;
          LejaratiDatum = lejaratiDatum;
          Torekeny = torekeny;
-         GyartasiOsztaly = gyartasiOsztaly;
+         GyartasiOrszag = gyartasiOrszag;
          SzallitasiCim = szallitasiCim;
          Kiszallitva = false;
       }
