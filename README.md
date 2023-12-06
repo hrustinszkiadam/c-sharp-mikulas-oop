@@ -15,7 +15,7 @@
 * Ár `(int)` - Az ajándék ára.
 * Címzett `(string)` - Az ajándék címzettje.
 * Kategória `(string)` - Az ajándék kategóriája (pl.: játék, ruha, édesség stb.).
-* Becsomagolva (bool) - Az ajándék be van-e csomagolva.
+* Becsomagolva `(bool)` - Az ajándék be van-e csomagolva.
 * Gyártó `(string)` - Az ajándék gyártója.
 * RaktáronMennyiség `(int)` - Az ajándékból elérhető raktáron lévő mennyiség.
 * Anyag `(string)` - Az ajándék anyaga.

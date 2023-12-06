@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace mikulas
 {
-   class MikulasMuhely {
+   class MikulasMuhely
+   {
 
    }
 }
