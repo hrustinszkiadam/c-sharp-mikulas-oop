@@ -9,10 +9,9 @@ namespace mikulas
 
       public MikulasMuhely(string muhelyVezeto, Ajandek[] ajandekTomb)
       {
-         ajandekLista = new List<Ajandek>();
          this.ajandekTomb = ajandekTomb;
-         this.muhelyVezeto = muhelyVezeto;
          Array.Copy(ajandekTomb, this.ajandekTomb, ajandekTomb.Length);
+         ajandekLista = new List<Ajandek>();
          this.muhelyVezeto = muhelyVezeto;
          muhelyNyitva = false;
       }
@@ -131,8 +130,7 @@ namespace mikulas
 
       public void MuhelyVezetoModositas(string ujVezeto)
       {
-         muhelyVezeto = ujVezeto;
-         Console.WriteLine("A műhely vezetője: " + muhelyVezeto);
+         Console.WriteLine("A műhely vezetője: " + ujVezeto);
       }
 
       public void AjandekTorlese(string nev)
