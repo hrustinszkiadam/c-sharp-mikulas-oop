@@ -130,7 +130,8 @@ namespace mikulas
 
       public void MuhelyVezetoModositas(string ujVezeto)
       {
-         Console.WriteLine("A műhely vezetője: " + ujVezeto);
+         muhelyVezeto = ujVezeto;
+         Console.WriteLine("A műhely vezetője: " + muhelyVezeto);
       }
 
       public void AjandekTorlese(string nev)
