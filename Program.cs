@@ -22,15 +22,14 @@ namespace mikulas
          pulcsi.Szallitas("Budapest");
          Console.WriteLine(pulcsi.SzallitasiCim);
 
-         Console.WriteLine(borosUveg.Kiszallitva ? "borosUveg kiszállítva" : "borosUveg nincs kiszállítva");
          borosUveg.Kiszallitas();
-         Console.WriteLine(borosUveg.Kiszallitva ? "borosUveg kiszállítva" : "borosUveg nincs kiszállítva");
-         Console.WriteLine();
 
          Console.WriteLine("torpe ára: " + torpe.Ar);
          torpe.ArModositas(2000);
          Console.WriteLine("torpe ára: " + torpe.Ar);
          Console.WriteLine();
+
+         pulcsi.Ellenorzes();
 
          MikulasMuhely borsodiMuhely = new MikulasMuhely("Borsodi János", new Ajandek[10] { torpe, pulcsi, torpe, borosUveg, pulcsi, borosUveg, torpe, pulcsi, borosUveg, torpe  });
 

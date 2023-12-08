@@ -40,6 +40,20 @@ namespace mikulas
          Becsomagolva = true;
       }
 
+      public void Ellenorzes ()
+      {
+         if(Kiszallitva) {
+            Console.WriteLine($"A {Nev} nevű ajándék már ki van szállítva a {SzallitasiCim} címre.");
+         } else {
+            Console.WriteLine($"A {Nev} nevű ajándék még nincs kiszállítva.");
+         }
+         if(LejaratiDatum < DateTime.Now) {
+            Console.WriteLine($"A {Nev} nevű ajándék lejárt.");
+         } else {
+            Console.WriteLine($"A {Nev} nevű ajándék még nem járt le.");
+         }
+      }
+
       public void Szallitas(string cel = "")
       {
          if (cel != "")
@@ -51,6 +65,7 @@ namespace mikulas
       public void Kiszallitas()
       {
          Kiszallitva = true;
+         Console.WriteLine($"A {Nev} nevű ajándék kiszállítva a {SzallitasiCim} címre.");
       }
 
       public void ArModositas(int ujAr)
